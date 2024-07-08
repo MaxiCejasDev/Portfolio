@@ -2,32 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: 'Clash-Display';
+  src: url('/fonts/ClashDisplay-Bold.woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Clash-Display';
+  src: url('/fonts/ClashDisplay-Semibold.woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Clash-Display';
+  src: url('/fonts/ClashDisplay-Medium.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Clash-Display';
+  src: url('/fonts/ClashDisplay-Regular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Clash-Display';
+  src: url('/fonts/ClashDisplay-Light.woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Clash-Display';
+  src: url('/fonts/ClashDisplay-Extralight.woff');
+  font-weight: 200;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body{
+  font-family: 'Clash-Display';
+  max-width: 800px;
+  margin: auto;
+  @apply bg-black;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.active{
+  @apply text-white;
 }
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.icon-active{
+  filter: invert(0%) sepia(10%) saturate(1376%) hue-rotate(343deg) brightness(99%) contrast(90%)
 }
