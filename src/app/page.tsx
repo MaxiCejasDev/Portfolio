@@ -15,7 +15,7 @@ const cardContent: CardContent[] = [
     description:
       "Pagina web orientada al comercio electronico de productos tecnologicos",
     repositoryURL: "https://github.com/MaxiCejasDev/Ecommerce-React",
-    deployURL: "magicmarket.netlify.app//",
+    deployURL: "https://magicmarket.netlify.app//",
     imgALT: 'Magic market'
   },
   {
@@ -23,7 +23,7 @@ const cardContent: CardContent[] = [
     description:
       "Organizador de tareas por titulo",
     repositoryURL: "https://github.com/MaxiCejasDev/TaskFlow",
-    deployURL: "magicmarket.netlify.app//",
+    deployURL: "https://magicmarket.netlify.app//",
     imgALT: 'Taskflow'
   },
   {
@@ -47,19 +47,19 @@ const cardContent: CardContent[] = [
 
 export default function Home() {
   return (
-    <main className="flex gap-x-8 flex-wrap flex-1">
+    <main className="flex flex-wrap w-full justify-between h-fit gap-y-4 gap-x-2 pb-4">
       {cardContent.map(({imgURL,description, repositoryURL, deployURL,imgALT})=>(
-        <Card className='bg-card flex flex-col' key={repositoryURL}>
-          <div className="h-[80px] w-[100px}">
-            <Card.Presentation src={imgURL} alt={imgALT} height={80} width={100} objectFit='contain'></Card.Presentation>
+        <Card className='bg-card flex flex-col w-[380px] h-[350px] rounded-[12px] overflow-hidden px-4  py-4' key={repositoryURL}>
+          <div className="h-[50%] w-full">
+            <Card.Presentation className='h-full w-full' src={imgURL} alt={imgALT} height={80} width={100} objectFit='contain'></Card.Presentation>
           </div>
           
-          <Card.Description className='text-white font-regular text-base'>{description}</Card.Description>
-          <div className="flex gap-x-2"> 
-          <Card.Repository className='text-grey font-regular text-sm flex bg-button rounded-[12px] items-center py-2 px-4' href={repositoryURL}>
+          <Card.Description className='text-white font-light text-base pt-4'>{description}</Card.Description>
+          <div className="flex gap-x-2 pt-4"> 
+          <Card.Repository target={'_BLANK'} className='text-grey gap-x-1 font-regular text-sm flex bg-button rounded-[12px] items-center py-2 px-4' href={repositoryURL}>
             <Image src={'/images/icons/github.svg'} width={16} height={16} alt="Github icon"/>
             Repositorio</Card.Repository>
-          <Card.Deploy className='text-grey font-regular text-sm flex bg-button rounded-[12px] items-center py-2 px-4' href={deployURL}>
+          <Card.Deploy target={'_BLANK'}  className='text-grey gap-x-1 font-regular text-sm flex bg-button rounded-[12px] items-center py-2 px-4' href={deployURL}>
             <Image src={'/images/icons/deploy.svg'} width={16} height={16} alt="Deploy icon"/>
             Ver Pagina</Card.Deploy>
           </div>

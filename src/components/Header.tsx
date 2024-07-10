@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Nav from "./Nav";
+import Link from "next/link";
 export default function Header() {
   return (
     <header className="mt-24">
@@ -24,11 +25,11 @@ export default function Header() {
         </p>
       </div>
       <div className="flex gap-x-2 pt-8">
-        <button className="bg-button h-[45px] rounded-[12px] p-4 flex items-center gap-x-2 text-light font-regular text-xl"><Image src={'/images/icons/email.svg'} alt="Email icon" height={25} width={25}/>Email</button>
-        <button className="bg-button h-[45px] rounded-[12px] p-4 flex items-center gap-x-2 text-light font-regular text-xl"><Image src={'/images/icons/resume.svg'} alt="Resume icon" height={25} width={20}/>Curriculum</button>
-        <button className="bg-button h-[45px] rounded-[12px] p-4 flex items-center"><Image src={'/images/icons/linkedin.svg'} height={25} width={25} alt="Linkedin icon"/></button>
-        <button className="bg-button h-[45px] rounded-[12px] p-4 flex items-center"><Image src={'/images/icons/github.svg'} height={25} width={25} alt="Github icon"/></button>
-        <button className="bg-button h-[45px] rounded-[12px] p-4 flex items-center"><Image src={'/images/icons/behance.svg'} height={25} width={25} alt="Behance icon"/></button>
+        <Link href={'https://www.linkedin.com/in/maximiliano-cejas/'} className="bg-button h-[45px] rounded-[12px] p-4 flex items-center gap-x-2 text-light font-regular text-xl"><Image src={'/images/icons/email.svg'} alt="Email icon" height={25} width={25}/>Email</Link>
+        <Link href={'https://www.linkedin.com/in/maximiliano-cejas/'} className="bg-button h-[45px] rounded-[12px] p-4 flex items-center gap-x-2 text-light font-regular text-xl"><Image src={'/images/icons/resume.svg'} alt="Resume icon" height={25} width={20}/>Curriculum</Link>
+        <Link  target="_BLANK" href={'https://www.linkedin.com/in/maximiliano-cejas/'} className="bg-button h-[45px] rounded-[12px] p-4 flex items-center"><Image src={'/images/icons/linkedin.svg'} height={25} width={25} alt="Linkedin icon"/></Link>
+        <Link  target="_BLANK" href={'https://github.com/MaxiCejasDev'} className="bg-button h-[45px] rounded-[12px] p-4 flex items-center"><Image src={'/images/icons/github.svg'} height={25} width={25} alt="Github icon"/></Link>
+        <Link  target="_BLANK" href={'https://www.behance.net/maxicejas2'} className="bg-button h-[45px] rounded-[12px] p-4 flex items-center"><Image src={'/images/icons/behance.svg'} height={25} width={25} alt="Behance icon"/></Link>
       </div>
       <Nav/>
     </header>
