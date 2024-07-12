@@ -52,3 +52,11 @@ body{
 .icon-active{
   filter: invert(0%) sepia(10%) saturate(1376%) hue-rotate(343deg) brightness(99%) contrast(90%)
 }
+
+
+.form-label::after{
+  content: "*";
+  margin-left: 5px;
+  font-size: 20px;
+  color: #9E2828;
+}
