@@ -2,57 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Clash-Display';
-  src: url('/fonts/ClashDisplay-Bold.woff');
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Clash-Display';
-  src: url('/fonts/ClashDisplay-Semibold.woff');
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Clash-Display';
-  src: url('/fonts/ClashDisplay-Medium.woff');
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Clash-Display';
-  src: url('/fonts/ClashDisplay-Regular.woff');
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Clash-Display';
-  src: url('/fonts/ClashDisplay-Light.woff');
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Clash-Display';
-  src: url('/fonts/ClashDisplay-Extralight.woff');
-  font-weight: 200;
-  font-style: normal;
-}
 
 body{
-  font-family: 'Clash-Display';
-  max-width: 800px;
+  max-width: 700px;
   margin: auto;
-  @apply bg-black;
+  padding-bottom: 100px;
+  @apply bg-black font-sans;
 }
 
 .active{
   @apply text-white;
 }
 .icon-active{
-  filter: invert(0%) sepia(10%) saturate(1376%) hue-rotate(343deg) brightness(99%) contrast(90%)
+  filter: invert(0%) sepia(99%) saturate(21%) hue-rotate(217deg) brightness(92%) contrast(101%)
 }
 
+.card-icon{
+  filter: invert(13%) sepia(34%) saturate(0%) hue-rotate(149deg) brightness(105%) contrast(105%)
+}
 
 .form-label::after{
   content: "*";
@@ -60,4 +27,5 @@ body{
   font-size: 20px;
   color: #9E2828;
 }
+
 

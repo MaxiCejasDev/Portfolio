@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <main className="font-light text-white text-xl">
+    <main className="font-light text-white w-full px-6 sm:px-0 text-base sm:text-lg">
       <div>
-        <p className="mt-4">
+        <p className="">
           Soy un desarrollador frontend con conocimientos en diseño UX/UI de
           Argentina, mi principal enfoque es construir interfaces intuitivas y
           atractivas colocándome en la perspectiva de los usuarios.
@@ -20,9 +20,9 @@ export default function About() {
           dar los mejores resultados posibles.
         </p>
       </div>
-      <div className="mt-8 pb-8">
+      <div className="mt-8">
         <div>
-          <h2 className="flex items-center font-semibold text-2xl gap-x-2">
+          <h2 className="flex items-center font-semibold text-lg gap-x-2">
             <Image
               src={"/images/icons/code.svg"}
               height={25}
@@ -38,13 +38,13 @@ export default function About() {
               width={25}
               alt="Information icon"
             />
-            <p className="font-regular text-xl">
+            <p className="font-regular text-base text-light">
               Next.js, React, Typescript,TailwindCSS, CSS.
             </p>
           </div>
         </div>
         <div className="mt-8">
-          <h2 className="flex items-center font-semibold text-2xl gap-x-2">
+          <h2 className="flex items-center font-semibold text-lg gap-x-2">
             <Image
               src={"/images/icons/knowledge.svg"}
               height={25}
@@ -60,7 +60,7 @@ export default function About() {
               width={25}
               alt="Information icon"
             />
-            <p className="font-regular text-xl">
+            <p className="font-regular text-base text-light">
               UX/UI, Testing, CSS Modules, GSAP, Bootstrap, Sass.
             </p>
           </div>

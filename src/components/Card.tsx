@@ -12,14 +12,14 @@ export const Card = ({children,...props} : CardProps)=>{
         <div {...props}>{children}</div>
     )
 }
-const Presentation = ({...props})=> {return <Image {...props}/>} 
+const Title = ({children,...props})=>{return <h3 {...props}>{children}</h3>}
 const Description = ({children,...props})=> {return <p {...props}>{children}</p>}
 const Repository = ({children,...props})=> {return <a {...props}>{children}</a>}
 const Deploy = ({children,...props})=> {return <a {...props}>{children}</a>}
-
-Card.Presentation = Presentation
+const Presentation = ({...props})=> {return <Image {...props}/>} 
+Card.Title = Title;
 Card.Description = Description;
 Card.Repository = Repository;
 Card.Deploy = Deploy;
-
+Card.Presentation = Presentation
 export default Card;
