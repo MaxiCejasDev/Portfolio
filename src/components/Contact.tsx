@@ -45,23 +45,24 @@ export default function Contact() {
   // }
   
   return (
-    <nav className="w-[500px] h-[80px] fixed bottom-2 z-10 left-[calc(50%-250px)]  text-[#222222]">
-      <div className="relative h-full w-full grid grid-cols-2 px-4 rounded-[40px] bg-[#F0F0F0] z-10">
+    <nav className={`w-[90%]  left-[5%] h-[60px] sm:w-[500px] sm:h-[80px] fixed bottom-2 z-10 sm:left-[calc(50%-250px)] overflow-hidden ${openContact?'overflow-visible':''}`}>
+      <div className={`relative h-full w-full grid grid-cols-2 px-4 rounded-[40px] duration-500  z-10 ${openContact?'bg-button text-white':'bg-[#F0F0F0] text-[#222222]'}`}>
         <div className="flex  items-center gap-x-2">
-          <div className="h-[50px] w-[50px] relative rounded-full">
+          <div className="h-[40px] w-[40px] sm:h-[50px] sm:w-[50px] relative rounded-full">
             <Image src={'/images/profile.svg'} fill alt="Profile Photo"/>
           </div>
           <div>
-            <h3 className="font-bold text-base">Maximiliano Cejas</h3>
-            <p className="font-regular text-base">Frontend developer</p>
+            <h3 className="font-bold text-xs sm:text-base">Maximiliano Cejas</h3>
+            <p className="font-regular text-xs sm:text-base">Frontend developer</p>
           </div>
         </div>
-        <div className="flex justify-center items-center">
-          <button onClick={handleOpenContact} className="bg-[#cdcdcd] hover:bg-[#bebebe] relative py-3 rounded-[26px] pl-5 w-[140px] flex items-start justify-start gap-x-2 font-medium text-lg overflow-hidden">
+        <div className="flex justify-end items-center">
+          <button onClick={handleOpenContact} className={`${openContact?'bg-black hover:bg-hover-black':''} bg-[#cdcdcd] font-medium hover:bg-[#bebebe] text-sm relative py-2 w-28 pl-3  sm:pl-5 sm:py-3 rounded-[26px] sm:w-[140px] flex items-start justify-start gap-x-2 sm:text-lg overflow-hidden`}>
             Contacto
             
-            <div className="bg-[#F0F0F0] right-2 w-[30px] h-[30px] rounded-full flex items-center justify-center absolute">
+            <div className="bg-[#F0F0F0] right-2 w-[30px] h-[30px] rounded-full flex items-center justify-center absolute top-[4px] sm:top-[12px]">
               <Image
+                className={`${openContact?'rotate-180 duration-500':'rotate-0 duration-500'}`}
                 src={"/images/icons/arrow.svg"}
                 height={0.5}
                 width={10}
@@ -72,7 +73,10 @@ export default function Contact() {
         </div>
         
       </div>
-      {openContact && <ContactModal formData={formData} handleChangeValue={handleChangeValue}/>}
+      <div className={`${openContact?'h-[480px] w-full overflow-hidden absolute bottom-[34px] overflow-hidden sm:h-[500px]':'h-[20px] w-full overflow-hidden bottom-[34px] absolute sm:h-[calc(80px-28px)]'}`}>
+        <ContactModal openContact={openContact} formData={formData} handleChangeValue={handleChangeValue}/>
+      </div>
+      
           
     </nav>
   );

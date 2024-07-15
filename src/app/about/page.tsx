@@ -38,7 +38,7 @@ export default function About() {
               width={25}
               alt="Information icon"
             />
-            <p className="font-regular text-base text-light">
+            <p className="font-regular text-sm sm:text-base text-light">
               Next.js, React, Typescript,TailwindCSS, CSS.
             </p>
           </div>
@@ -60,7 +60,7 @@ export default function About() {
               width={25}
               alt="Information icon"
             />
-            <p className="font-regular text-base text-light">
+            <p className="font-regular text-sm sm:text-base text-light">
               UX/UI, Testing, CSS Modules, GSAP, Bootstrap, Sass.
             </p>
           </div>
