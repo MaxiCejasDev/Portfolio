@@ -1,9 +1,10 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface Props{
+    handleSubmit:(e:React.FormEvent)=>void;
     openContact: boolean;
     formData: {
         name: string;
@@ -15,7 +16,7 @@ interface Props{
 
 const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
-export default function ContactModal({openContact,formData, handleChangeValue}: Props){
+export default function ContactModal({handleSubmit,openContact,formData, handleChangeValue}: Props){
     const modalRef = useRef()
     const [emailField, setEmailField] = useState({
         value: '',
@@ -34,19 +35,19 @@ export default function ContactModal({openContact,formData, handleChangeValue}: 
                     <Image src={'/images/icons/available.svg'} alt="Available icon" height={16} width={16}/>
                     <p>Disponible</p>
                 </div>
-            <form  className="flex flex-col px-8 sm:px-0 sm:pl-8 pt-10">
+            <form onSubmit={handleSubmit} className="flex flex-col px-8 sm:px-0 sm:pl-8 pt-10">
             <div className="flex flex-col">
                 <label className="font-medium form-label text-[#222222]" htmlFor="name">Nombre</label>
-                <input placeholder="Ingrese su nombre" className="bg-[#D9D9D9] rounded-[12px] py-2 pl-2" type="text" id="name" name="name" value={formData.name} onChange={handleChangeValue}/>
+                <input autoComplete="off" placeholder="Ingrese su nombre" className="bg-[#D9D9D9] rounded-[12px] py-2 pl-2 outline-1 outline-neutral-400" type="text" id="name" name="name" value={formData.name} onChange={handleChangeValue}/>
             </div>
-            <div className="flex flex-col pt-4">
+            <div className="flex flex-col pt-4 relative">
                 <label className="font-medium form-label text-[#222222]" htmlFor="email">Email</label>
-                <input placeholder="Ingrese su email" className="bg-[#D9D9D9] rounded-[12px] py-2 pl-2" type="email" onBlur={handleBlur} aria-errormessage="emailErrorID" aria-invalid={emailField.hasError} id="email" name="email" value={formData.email} onChange={handleChangeValue}/>
-                {emailField.hasError && <p className="text-sm font-regular text-[#ff2b2b] ml-2">Ingrese un email correcto</p>}
+                <input autoComplete="off" placeholder="Ingrese su email" className="bg-[#D9D9D9] rounded-[12px] py-2 pl-2 outline-1 outline-neutral-400" type="email" onBlur={handleBlur} aria-errormessage="emailErrorID" aria-invalid={emailField.hasError} id="email" name="email" value={formData.email} onChange={handleChangeValue}/>
+                {emailField.hasError && <p className="text-sm font-regular text-[#ff2b2b] ml-2 absolute top-[85px]">Ingrese un email correcto</p>}
             </div>
             <div className="flex flex-col pt-4">
                 <label className="font-medium form-label text-[#222222]" htmlFor="message">Mensaje (Opcional)</label>
-                <textarea placeholder="Ingrese un mensaje" className="bg-[#D9D9D9] rounded-[12px] py-2 pl-2" id="message" name="message" value={formData.message} onChange={handleChangeValue}></textarea>
+                <textarea placeholder="Ingrese un mensaje" className="bg-[#D9D9D9] rounded-[12px] py-2 pl-2 outline-1 outline-neutral-400" id="message" name="message" value={formData.message} onChange={handleChangeValue}></textarea>
             </div>
             <button className="bg-[#D9D9D9] h-[40px] font-medium mt-6 rounded-[26px] w-[95px]">Enviar</button>
         </form>

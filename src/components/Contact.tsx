@@ -29,20 +29,20 @@ export default function Contact() {
     setFormData(newData)
   }
 
-  // const handleSubmit = async (e: React.FormEvent)=>{
-  //   e.preventDefault()
-  //   const res = await fetch('/api/send',{
-  //     method: "POST",
-  //     body: JSON.stringify(formData),
-  //     headers: {
-  //         "Content-Type": "application/json",
-  //         "Accept": "application/json"
-  //     }
-  // })
-  // const data = await res.json()
-  // console.log(data)
-  // setFormData({name: '',email:'',message:''})
-  // }
+  const handleSubmit = async (e: React.FormEvent)=>{
+    e.preventDefault()
+    const res = await fetch('/api/send',{
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+      }
+  })
+  const data = await res.json()
+  console.log(data)
+  setFormData({name: '',email:'',message:''})
+  }
   
   return (
     <nav className={`w-[90%]  left-[5%] h-[60px] sm:w-[500px] sm:h-[80px] fixed bottom-2 z-10 sm:left-[calc(50%-250px)] overflow-hidden ${openContact?'overflow-visible':''}`}>
@@ -74,7 +74,7 @@ export default function Contact() {
         
       </div>
       <div className={`${openContact?'h-[480px] w-full overflow-hidden absolute bottom-[34px] overflow-hidden sm:h-[500px]':'h-[20px] w-full overflow-hidden bottom-[34px] absolute sm:h-[calc(80px-28px)]'}`}>
-        <ContactModal openContact={openContact} formData={formData} handleChangeValue={handleChangeValue}/>
+        <ContactModal handleSubmit={handleSubmit} openContact={openContact} formData={formData} handleChangeValue={handleChangeValue}/>
       </div>
       
           

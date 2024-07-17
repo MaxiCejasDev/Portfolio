@@ -13,7 +13,8 @@ export async function POST(req:NextRequest,res:NextResponse){
         from: `${email} <onboarding@resend.dev>`,
         to: ['maxicejas12354@gmail.com'],
         subject: `${name}`,
-        react: EmailTemplate({ message: message }),
+        react: EmailTemplate({ firstname: name }),
+        text: message
     })
     return NextResponse.json({message: "Email enviado con exito"},{status: 200})
    }
