@@ -5,11 +5,11 @@ import React, { useState } from "react";
 
 
 
-
+const emailRegexp = new RegExp(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
 
 
 export default function Contact() {
-  
+  const [formSend, setFormSend] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,21 +28,58 @@ export default function Contact() {
     }
     setFormData(newData)
   }
+  const [formField, setFormField] = useState({
+    nameHasError: false,
+    emailHasError: false,
+    messageHasError: false
+  })
+const handleNameBlur = ()=>{
+  const hasError = formData.name.trim() === ''
+  setFormField(prevState=>({
+    ...prevState,
+    nameHasError: hasError
+  }))
+}
+const handleEmailBlur = ()=>{
+    const hasError =  !emailRegexp.test(formData.email)
+    setFormField(prevState=>({
+      ...prevState,
+      emailHasError: hasError
+    }))
+}
+const handleMessageBlur = ()=>{
+  const hasError = formData.message.trim() === ''
+  setFormField(prevState=>({
+    ...prevState,
+    messageHasError: hasError
+  }))
+}
+
+  const handleSendForm = ()=>{
+    setFormSend(true)
+}
 
   const handleSubmit = async (e: React.FormEvent)=>{
     e.preventDefault()
-    const res = await fetch('/api/send',{
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
+    if(formData.name.trim() !== '' && formData.email.trim() !== '' && formData.message.trim() !== ''){
+      if(!formField.nameHasError && !formField.emailHasError && !formField.messageHasError){
+        const res = await fetch('/api/send',{
+          method: "POST",
+          body: JSON.stringify(formData),
+          headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+          }
+        }
+        
+      )
+      const data = await res.json()
+      setFormData({name: '',email:'',message:''})
+      handleSendForm()
       }
-  })
-  const data = await res.json()
-  console.log(data)
-  setFormData({name: '',email:'',message:''})
+    }
   }
+
   
   return (
     <nav className={`w-[90%]  left-[5%] h-[60px] sm:w-[500px] sm:h-[80px] fixed bottom-2 z-10 sm:left-[calc(50%-250px)] overflow-hidden ${openContact?'overflow-visible':''}`}>
@@ -73,8 +110,8 @@ export default function Contact() {
         </div>
         
       </div>
-      <div className={`${openContact?'h-[480px] w-full overflow-hidden absolute bottom-[34px] overflow-hidden sm:h-[500px]':'h-[20px] w-full overflow-hidden bottom-[34px] absolute sm:h-[calc(80px-28px)]'}`}>
-        <ContactModal handleSubmit={handleSubmit} openContact={openContact} formData={formData} handleChangeValue={handleChangeValue}/>
+      <div className={`${openContact?'h-[480px] w-full absolute bottom-[34px] overflow-hidden sm:h-[500px]':'h-[20px] w-full overflow-hidden bottom-[34px] absolute sm:h-[calc(80px-28px)]'}`}>
+        <ContactModal formField={formField} handleNameBlur={handleNameBlur} handleEmailBlur={handleEmailBlur} handleMessageBlur={handleMessageBlur} formSend={formSend} handleSubmit={handleSubmit} openContact={openContact} formData={formData} handleChangeValue={handleChangeValue}/>
       </div>
       
           
