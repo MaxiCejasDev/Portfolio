@@ -19,11 +19,11 @@ const cardContent: CardContent[] = [
     name: 'Magic market'
   },
   {
-    imgURL: '/images/anashe.jpg',
+    imgURL: '/images/proyects/task-flow.png',
     description:
       "Organizador de tareas por titulo",
     repositoryURL: "https://github.com/MaxiCejasDev/TaskFlow",
-    deployURL: "/",
+    deployURL: "https://taskflow-proyect.vercel.app/",
     name: 'Taskflow'
   },
   {
