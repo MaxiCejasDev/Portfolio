@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <head>
         <link rel="shortcut icon" href="/images/profile.svg" type="image/x-icon" />
         <link rel="preload" as="image" href="/images/proyects/magic-market.webp" />
