@@ -3,7 +3,7 @@ import Image from "next/image";
 import Nav from "./Nav";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { EmailModal } from "./EmailModal";
+import EmailModal  from "./EmailModal";
 
 export default function Header() {
   const [emailModal, setEmailModal] = useState(false)
