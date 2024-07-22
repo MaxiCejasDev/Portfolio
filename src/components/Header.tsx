@@ -3,22 +3,22 @@ import Image from "next/image";
 import Nav from "./Nav";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import EmailModal  from "./EmailModal";
+import {EmailModal} from "./EmailModal";
 
 export default function Header() {
-  const [emailModal, setEmailModal] = useState(false)
+  const [emailModalOpen, setEmailModalOpen] = useState(false)
   const emailModalRef = useRef<HTMLDivElement | null>(null)
   const emailButtonRef = useRef<HTMLDivElement | null>(null)
   const handleEmailModal = ()=>{
-    setEmailModal(!emailModal)
+    setEmailModalOpen(!emailModalOpen)
   }
   const handleOutsideEmailModal = (e:MouseEvent)=>{
     if (emailModalRef.current && !emailModalRef.current.contains(e.target as Node) && emailButtonRef.current && !emailButtonRef.current.contains(e.target as Node)) {
-      setEmailModal(false)
+      setEmailModalOpen(false)
     }
   }
   useEffect(()=>{
-    if(emailModal){
+    if(emailModalOpen){
       document.addEventListener("mousedown",handleOutsideEmailModal)
     }
     else{
@@ -27,7 +27,7 @@ export default function Header() {
     return ()=>{
       document.removeEventListener("mousedown",handleOutsideEmailModal)
     }
-  },[emailModal])
+  },[emailModalOpen])
   return (
     <header className="mt-24 px-6 sm:px-0">
       <div className="flex gap-x-2 items-center">
@@ -59,7 +59,7 @@ export default function Header() {
         
         </div>
         <Link rel="preload" href={'https://www.linkedin.com/in/maximiliano-cejas/'} className="bg-button hover:bg-hover-black h-[50px] w-full sm:w-auto justify-center sm:justify-normal sm:h-[40px] rounded-[12px] px-6 sm:px-4  flex items-center gap-x-2 text-light font-medium text-lg sm:text-base"><Image className="h-[24px] w-[20px] sm:h-[16px] sm:w-[12px]" src={'/images/icons/resume.svg'} alt="Resume icon" height={16} width={12}/>Curriculum</Link>
-        {emailModal && <EmailModal emailModalRef={emailModalRef}/>}
+        {emailModalOpen && <EmailModal emailModalRef={emailModalRef}/>}
         </div>
         <div className="flex gap-x-2">
         <Link rel="preload"  target="_BLANK" href={'https://www.linkedin.com/in/maximiliano-cejas/'} className="bg-button hover:bg-hover-black h-[50px] w-full sm:w-auto justify-center sm:justify-normal sm:h-[40px] px-8 sm:px-4 rounded-[12px] p-4 flex items-center"><Image className="h-[24px] w-[24px] sm:h-[16px] sm:w-[16px]" src={'/images/icons/linkedin.svg'} height={16} width={16} alt="Linkedin icon"/></Link>
