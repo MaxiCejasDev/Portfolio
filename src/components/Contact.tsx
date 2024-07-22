@@ -89,7 +89,7 @@ const handleMessageBlur = ()=>{
             <Image src={'/images/profile.svg'} fill alt="Profile Photo"/>
           </div>
           <div>
-            <h3 className="font-bold text-xs sm:text-base">Maximiliano Cejas</h3>
+            <h2 className="font-bold text-xs sm:text-base">Maximiliano Cejas</h2>
             <p className="font-regular text-xs sm:text-base">Frontend developer</p>
           </div>
         </div>

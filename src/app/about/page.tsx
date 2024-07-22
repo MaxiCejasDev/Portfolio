@@ -61,7 +61,7 @@ export default function About() {
               alt="Information icon"
             />
             <p className="font-regular text-sm sm:text-base text-light">
-              UX/UI, Testing, CSS Modules, GSAP, Bootstrap, Sass.
+              UX/UI, Testing, CSS Modules, GSAP, Bootstrap, Sass, Redux Toolkit.
             </p>
           </div>
         </div>

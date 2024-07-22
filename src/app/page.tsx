@@ -6,48 +6,57 @@ interface CardContent {
   description: string;
   repositoryURL: string;
   deployURL: string;
-  name: string
+  name: string;
+  rel?:string;
+  loading?:string
 }
 
-const cardContent: CardContent[] = [
+
+const cardContent: CardContent[]= [
   {
-    imgURL: '/images/anashe.jpg',
+    imgURL: '/images/proyects/magic-market.webp',
     description:
       "Pagina web orientada al comercio electronico de productos tecnologicos",
     repositoryURL: "https://github.com/MaxiCejasDev/Ecommerce-React",
     deployURL: "https://magicmarket.netlify.app//",
-    name: 'Magic market'
+    name: 'Magic market',
+    rel: 'preload',
+    loading: 'eager'
   },
   {
-    imgURL: '/images/proyects/task-flow.png',
+    imgURL: '/images/proyects/task-flow.webp',
     description:
       "Organizador de tareas por titulo",
     repositoryURL: "https://github.com/MaxiCejasDev/TaskFlow",
     deployURL: "https://taskflow-proyect.vercel.app/",
-    name: 'Taskflow'
+    name: 'Taskflow',
+    loading: 'lazy'
   },
   {
-    imgURL: '/images/proyects/tefi-yoga.png',
+    imgURL: '/images/proyects/tefi-yoga.webp',
     description:"Landing page para una cliente realizada con un equipo de diseñadoras UX/UI y otro desarrollador frontend",
     repositoryURL: "https://github.com/Lucasinsa/TefiYoga",
     deployURL: "https://tefiyoga.netlify.app/",
-    name: 'TefiYoga'
+    name: 'TefiYoga',
+    loading: 'lazy'
   },
   {
-    imgURL: '/images/proyects/flex-fit.png',
+    imgURL: '/images/proyects/flex-fit.webp',
     description:
       "Pagina web orientada a la venta de planes de entrenamiento",
     repositoryURL: "https://github.com/MaxiCejasDev/Desarrollo-Web-Coderhouse",
     deployURL: "https://maxicejasdev.github.io/Desarrollo-Web-Coderhouse/",
-    name: 'Flex Fit'
+    name: 'Flex Fit',
+    loading: 'lazy'
   },
   {
-    imgURL: '/images/proyects/flex-fitwear.png',
+    imgURL: '/images/proyects/flex-fitwear.webp',
     description:
       "Ecommerce básico  de ropa deportiva",
     repositoryURL: "https://github.com/MaxiCejasDev/Javascript-Coderhouse",
     deployURL: "https://maxicejasdev.github.io/Javascript-Coderhouse/",
-    name: 'Flex Fitwear'
+    name: 'Flex Fitwear',
+    loading: 'lazy'
   },
 
 ];
@@ -55,7 +64,7 @@ const cardContent: CardContent[] = [
 export default function Home() {
   return (
     <main className="flex flex-col w-full justify-center items-center between h-fit px-2 sm:px-0 gap-y-6">
-      {cardContent.map(({imgURL,description, repositoryURL, deployURL,name})=>(
+      {cardContent.map(({imgURL,description, repositoryURL, deployURL,name,rel,loading})=>(
         <Card className='bg-hover-black sm:bg-button flex flex-col-reverse gap-y-6 sm:gap-y-0 sm:grid sm:hover:bg-hover-black duration-300 sm:grid-cols-2 sm:grid-rows-1 w-full h-[500px] sm:h-[300px] rounded-[12px] overflow-hidden p-[16px] sm:p-[30px]' key={repositoryURL}>
 
           <div className="flex flex-col justify-between gap-y-6 sm:gap-y-0">
@@ -69,13 +78,13 @@ export default function Home() {
             <Image className="card-icon sm:h-[16px] h-[24px] w-[24px] sm:-w-[16px]" src={'/images/icons/github-card.svg'} width={16} height={16} alt="Github icon"/>
             Repositorio</Card.Repository>
           <Card.Deploy target={'_BLANK'}  className='font-sans font-semibold gap-x-2 sm:gap-x-1 font-regular text-lg sm:text-sm flex justify-center sm:justify-normal hover:bg-[#d2d2d2] text-[#222222]  bg-[#F0F0F0]  rounded-[12px] items-center py-2 sm:px-4' href={deployURL}>
-            <Image className="card-icon sm:h-[16px] h-[24px] w-[24px] sm:-w-[16px]" src={'/images/icons/deploy-card.svg'} width={16} height={16} alt="Deploy icon"/>
+            <Image  className="card-icon sm:h-[16px] h-[24px] w-[24px] sm:-w-[16px]" src={'/images/icons/deploy-card.svg'} width={16} height={16} alt="Deploy icon"/>
             Ver Pagina</Card.Deploy>
           </div>
           </div>
 
           <div className="h-full w-full rounded-xl bg-black relative overflow-hidden">
-            <Card.Presentation className="h-full w-full" src={imgURL} alt={name} fill></Card.Presentation>
+            <Card.Presentation loading={loading} rel={rel} className="h-full w-full" src={imgURL} alt={name} fill></Card.Presentation>
           </div>
         </Card>
       ))}
