@@ -32,7 +32,7 @@ export default function Header() {
     <header className="mt-24 px-6 sm:px-0">
       <div className="flex gap-x-2 items-center">
         <div className="rounded-full h-[60px] w-[60px] relative">
-          <Image src={'/images/profile.svg'} fill alt="Profile photo"/>
+          <Image className="object-cover" height={60} width={60} src={'/images/small-profile.svg'} alt="Small Profile photo"/>
         </div>
         <div className="bg-button flex gap-x-4 px-2 items-center rounded-[6px] h-[45px] w-64">
           <Image

@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <main className="flex flex-col w-full justify-center items-center between h-fit px-2 sm:px-0 gap-y-6">
       {cardContent.map(({imgURL,description, repositoryURL, deployURL,name,rel,loading})=>(
-        <Card className='bg-hover-black sm:bg-button flex flex-col-reverse gap-y-6 sm:gap-y-0 sm:grid sm:hover:bg-hover-black duration-300 sm:grid-cols-2 sm:grid-rows-1 w-full h-[500px] sm:h-[300px] rounded-[12px] overflow-hidden p-[16px] sm:p-[30px]' key={repositoryURL}>
+        <Card className='bg-hover-black sm:bg-button flex flex-col-reverse gap-y-6 sm:gap-y-0 sm:grid sm:hover:bg-hover-black duration-300 sm:grid-cols-2 sm:grid-rows-1 w-full h-[550px] sm:h-[300px] rounded-[12px] overflow-hidden p-[16px] sm:p-[30px]' key={repositoryURL}>
 
           <div className="flex flex-col justify-between gap-y-6 sm:gap-y-0">
             <div className="pr-4">
