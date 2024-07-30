@@ -39,7 +39,7 @@ export default function About() {
               alt="Information icon"
             />
             <p className="font-regular text-sm sm:text-base text-light">
-              Next.js, React, Typescript,TailwindCSS, CSS, CSS Modules, GSAP, Webflow, Figma.
+              Next.js, React, TailwindCSS, CSS, Figma.
             </p>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function About() {
               alt="Information icon"
             />
             <p className="font-regular text-sm sm:text-base text-light">
-              Bootstrap, Sass, Git, Redux.
+              Bootstrap, Sass, Git.
             </p>
           </div>
         </div>
