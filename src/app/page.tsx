@@ -48,16 +48,7 @@ const cardContent: CardContent[]= [
     deployURL: "https://maxicejasdev.github.io/Desarrollo-Web-Coderhouse/",
     name: 'Flex Fit',
     loading: 'lazy'
-  },
-  {
-    imgURL: '/images/proyects/flex-fitwear.webp',
-    description:
-      "Ecommerce básico  de ropa deportiva",
-    repositoryURL: "https://github.com/MaxiCejasDev/Javascript-Coderhouse",
-    deployURL: "https://maxicejasdev.github.io/Javascript-Coderhouse/",
-    name: 'Flex Fitwear',
-    loading: 'lazy'
-  },
+  }
 
 ];
 

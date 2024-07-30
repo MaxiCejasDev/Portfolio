@@ -42,7 +42,7 @@ export default function ContactModal({formField,handleNameBlur,handleEmailBlur,h
             <div className="flex flex-col">
                 <label className="font-medium form-label text-[#222222]" htmlFor="name">Nombre</label>
                 <input autoComplete="off" placeholder="Ingrese su nombre" className={`bg-[#D9D9D9] rounded-[12px] py-2 pl-2 outline-1 outline-neutral-400 ${formField.nameHasError?'border-[#ff2b2b] border-[0.5px]':''}`} type="text" onBlur={handleNameBlur} aria-errormessage="nameErrorID" aria-invalid={formField.nameHasError} id="name" name="name" value={formData.name} onChange={handleChangeValue}/>
-                {formField.nameHasError && <p className="text-sm font-regular text-[#ff2b2b] ml-2 absolute top-[110px]">Ingrese su nombre.</p>}
+                {formField.nameHasError && <p className="text-sm font-regular text-[#ff2b2b] ml-2 absolute top-[110px]">Ingresa tu nombre, por favor.</p>}
             </div>
             <div className="flex flex-col pt-4 relative">
                 <label className="font-medium form-label text-[#222222]" htmlFor="email">Email</label>
@@ -50,7 +50,7 @@ export default function ContactModal({formField,handleNameBlur,handleEmailBlur,h
                 {formField.emailHasError && <p className="text-sm font-regular text-[#ff2b2b] ml-2 absolute top-[85px]">Ingrese un email correcto.</p>}
             </div>
             <div className="flex flex-col pt-4 relative">
-                <label className="font-medium form-label text-[#222222]" htmlFor="message">Mensaje (Opcional)</label>
+                <label className="font-medium form-label text-[#222222]" htmlFor="message">Mensaje</label>
                 <textarea placeholder="Ingrese un mensaje" className={`bg-[#D9D9D9] rounded-[12px] py-2 pl-2 outline-1 outline-neutral-400 ${formField.messageHasError?'border-[#ff2b2b] border-[0.5px]':''}`} id="message" name="message" onBlur={handleMessageBlur} value={formData.message} aria-errormessage="messageErrorID" aria-invalid={formField.messageHasError} onChange={handleChangeValue}></textarea>
                 {formField.messageHasError && <p className="text-sm font-regular text-[#ff2b2b] ml-2 absolute top-[110px]">Ingrese un mensaje, por favor.</p>}
             </div>

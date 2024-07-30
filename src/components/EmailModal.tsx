@@ -18,7 +18,7 @@ export function EmailModal({emailModalRef}:Props){
       });
     };
     return(
-        <div ref={emailModalRef} className="w-[280px] text-white h-[60px] flex items-center p-[20px] gap-x-4 bg-[#1E1E1E] absolute top-[55px] sm:top-[45px] z-10 rounded-[12px] ">
+        <div ref={emailModalRef} className="w-[280px] text-white border-2 shadow-[0px_5px_10px_rgba(23,23,23,.5)] border-hover-black h-[60px] flex items-center p-[20px] gap-x-4 bg-card absolute top-[55px] sm:top-[45px] z-10 rounded-[12px] ">
                 <p>maxicejas12354@gmail.com</p>
                 <button onClick={copyToClipboard}>
                     {copied?<Image src={'/images/icons/check.svg'} height={20} width={20} alt="Copy icon"/>:<Image src={'/images/icons/copy.svg'} height={20} width={20} alt="Copy icon"/>}

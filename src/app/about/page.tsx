@@ -29,7 +29,7 @@ export default function About() {
               width={25}
               alt="Code icon"
             />
-            Tecnologías
+            Tecnologías y Herramientas
           </h2>
           <div className="flex bg-card h-[80px] items-center gap-x-2 px-4 mt-2">
             <Image
@@ -39,7 +39,7 @@ export default function About() {
               alt="Information icon"
             />
             <p className="font-regular text-sm sm:text-base text-light">
-              Next.js, React, Typescript,TailwindCSS, CSS.
+              Next.js, React, Typescript,TailwindCSS, CSS, CSS Modules, GSAP, Webflow, Figma.
             </p>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function About() {
               alt="Information icon"
             />
             <p className="font-regular text-sm sm:text-base text-light">
-              UX/UI, Bootstrap, Sass.
+              Bootstrap, Sass, Git, Redux.
             </p>
           </div>
         </div>
